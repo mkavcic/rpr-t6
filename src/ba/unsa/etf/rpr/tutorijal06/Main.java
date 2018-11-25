@@ -12,7 +12,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("upis.fxml"));
+        MjestoRodjenjaModel model1=new MjestoRodjenjaModel();
+        model1.napuni();
+
+        FXMLLoader loader = new FXMLLoader((getClass().getResource("upis.fxml")));
+        loader.setController(new MjestoRodjenjaModel(model1));
+        Parent root = loader.load();
         primaryStage.setResizable(false);
         primaryStage.setTitle("Upis studenta");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
