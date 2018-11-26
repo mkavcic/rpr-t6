@@ -41,7 +41,7 @@ public class Controller {
         if(n==null) return false;
         if(n.length()<2 || n.length()>20) return false;
         for(int i=0; i<n.length(); i++){
-            if(n.charAt(i)<'A' || n.charAt(i)>'Ž' || n.charAt(i)<'a' || n.charAt(i)>'ž') return false;
+            if((n.charAt(i)<'A' || n.charAt(i)>'Ž') && (n.charAt(i)<'a' || n.charAt(i)>'ž')) return false;
         }
         return true;
     }
