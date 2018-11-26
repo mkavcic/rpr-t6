@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+import static java.lang.Character.getNumericValue;
+
 public class Controller {
     private SmjerModel model2;
     private MjestoRodjenjaModel model1;
@@ -54,6 +56,21 @@ public class Controller {
         return true;
     }
 
+    private boolean validanJmbg(String n) {
+        if (n == null || n.length() != 13) return false;
+            int a = getNumericValue(n.charAt(5)) * 10 + getNumericValue(n.charAt(6));
+            int b=getNumericValue(n.charAt(2)) * 10 + getNumericValue(n.charAt(3));
+            if (n.charAt(2) == 0 && n.charAt(3) == 2 && a % 4 == 0) {
+                if (n.charAt(0) > 2) return false;
+            } else if (n.charAt(2) == 0 && n.charAt(3) == 2 && a % 4 != 0) {
+                if (n.charAt(0) > 2 && n.charAt(1) > 8) return false;
+            } else if (b>12)return false;
+            else if (n.charAt(4) == 0) {
+                if (a > 18) return false;
+            }
+            return true;
+    }
+
     @FXML
     public void initialize(){
         izborMjesta.setItems(model1.getMjesta());
@@ -63,6 +80,10 @@ public class Controller {
         izborStatusa.setItems(model5.getStatusi());
 
         ime.getStyleClass().add("poljeNijeIspravno");
+        prezime.getStyleClass().add("poljeNijeIspravno");
+        indeks.getStyleClass().add("poljeNijeIspravno");
+        jmbg.getStyleClass().add("poljeNijeIspravno");
+
         ime.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
@@ -100,6 +121,22 @@ public class Controller {
             }
         });
 
+        jmbg.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
+                if (validanJmbg(n)) {
+                    jmbg.getStyleClass().removeAll("poljeNijeIspravno");
+                    jmbg.getStyleClass().add("poljeIspravno");
+                }
+                else {
+                    jmbg.getStyleClass().removeAll("poljeIspravno");
+                    jmbg.getStyleClass().add("poljeNijeIspravno");
+
+                }
+            }
+        });
     }
 
 }
+
+
