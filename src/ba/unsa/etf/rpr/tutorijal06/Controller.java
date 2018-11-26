@@ -58,17 +58,20 @@ public class Controller {
 
     private boolean validanJmbg(String n) {
         if (n == null || n.length() != 13) return false;
-            int a = getNumericValue(n.charAt(5)) * 10 + getNumericValue(n.charAt(6));
-            int b=getNumericValue(n.charAt(2)) * 10 + getNumericValue(n.charAt(3));
-            if (n.charAt(2) == 0 && n.charAt(3) == 2 && a % 4 == 0) {
-                if (n.charAt(0) > 2) return false;
-            } else if (n.charAt(2) == 0 && n.charAt(3) == 2 && a % 4 != 0) {
-                if (n.charAt(0) > 2 && n.charAt(1) > 8) return false;
-            } else if (b>12)return false;
-            else if (n.charAt(4) == 0) {
-                if (a > 18) return false;
-            }
-            return true;
+        int a = getNumericValue(n.charAt(5)) * 10 + getNumericValue(n.charAt(6));
+        int b=getNumericValue(n.charAt(2)) * 10 + getNumericValue(n.charAt(3));
+        if (n.charAt(2) == 0 && n.charAt(3) == 2 && a % 4 == 0) {
+            if (n.charAt(0) > 2) return false;
+        } else if (n.charAt(2) == 0 && n.charAt(3) == 2 && a % 4 != 0) {
+            if (n.charAt(0) > 2 && n.charAt(1) > 8) return false;
+        } else if (b>12)return false;
+        else if (n.charAt(4) == 0) {
+            if (a > 18) return false;
+        }
+        int L = 11 - (( 7*(getNumericValue(n.charAt(0))+getNumericValue(n.charAt(6))) + 6*(getNumericValue(n.charAt(1))+getNumericValue(n.charAt(7))) + 5*(getNumericValue(n.charAt(2))+getNumericValue(n.charAt(8))) + 4*(getNumericValue(n.charAt(3))+getNumericValue(n.charAt(9))) + 3*(getNumericValue(n.charAt(4))+getNumericValue(n.charAt(10))) + 2*(getNumericValue(n.charAt(5))+getNumericValue(n.charAt(11))) ) % 11);
+        if(L>9) L=0;
+        if(getNumericValue(n.charAt(12))!=L) return false;
+        return true;
     }
 
     @FXML
