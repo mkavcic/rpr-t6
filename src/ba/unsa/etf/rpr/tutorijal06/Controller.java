@@ -46,6 +46,14 @@ public class Controller {
         return true;
     }
 
+    private boolean validanIndeks(String n) {
+        for (int i = 0; i < n.length(); i++) {
+            if (!(n.charAt(i) >= '0' && n.charAt(i) <= '9') || n==null || n.charAt(0) == '0') return false;
+        }
+        if(n.length() != 5) return false;
+        return true;
+    }
+
     @FXML
     public void initialize(){
         izborMjesta.setItems(model1.getMjesta());
@@ -76,6 +84,18 @@ public class Controller {
                 } else {
                     prezime.getStyleClass().removeAll("poljeIspravno");
                     prezime.getStyleClass().add("poljeNijeIspravno");
+                }
+            }
+        });
+        indeks.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
+                if (validanIndeks(n)) {
+                    indeks.getStyleClass().removeAll("poljeNijeIspravno");
+                    indeks.getStyleClass().add("poljeIspravno");
+                } else {
+                    indeks.getStyleClass().removeAll("poljeIspravno");
+                    indeks.getStyleClass().add("poljeNijeIspravno");
                 }
             }
         });
