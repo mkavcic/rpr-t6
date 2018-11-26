@@ -17,7 +17,12 @@ public class Smjer {
         this.smjer.set(smjer);
     }
 
-    public Smjer(SimpleStringProperty smjer) {
-        this.smjer = smjer;
+    public Smjer(String smjer) {
+        this.smjer =new SimpleStringProperty(smjer);
+    }
+
+    @Override
+    public String toString() {
+        return smjer.get();
     }
 }
