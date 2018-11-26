@@ -20,9 +20,11 @@ public class Main extends Application {
         ciklusModel.napuniCikluse();
         GodinaModel godinaModel=new GodinaModel();
         godinaModel.napuniGodine();
+        StatusModel statusModel=new StatusModel();
+        statusModel.napuniStatuse();
 
         FXMLLoader loader = new FXMLLoader((getClass().getResource("upis.fxml")));
-        loader.setController(new Controller(model1, model2, ciklusModel, godinaModel));
+        loader.setController(new Controller(model1, model2, ciklusModel, godinaModel,statusModel));
         Parent root = loader.load();
         primaryStage.setResizable(false);
         primaryStage.setTitle("Upis studenta");

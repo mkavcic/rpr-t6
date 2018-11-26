@@ -97,7 +97,7 @@
             <Label text="Smjer" GridPane.rowIndex="1" />
             <ChoiceBox fx:id="izborCiklusa" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Status studenta" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="izborStatusa" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <CheckBox alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Student pripada posebnim boračkim kategorijama" textAlignment="RIGHT" GridPane.rowIndex="5" />
          </children>
       </GridPane>
