@@ -18,9 +18,11 @@ public class Main extends Application {
         model2.napuniSmjer();
         CiklusModel ciklusModel=new CiklusModel();
         ciklusModel.napuniCikluse();
+        GodinaModel godinaModel=new GodinaModel();
+        godinaModel.napuniGodine();
 
         FXMLLoader loader = new FXMLLoader((getClass().getResource("upis.fxml")));
-        loader.setController(new Controller(model1, model2, ciklusModel));
+        loader.setController(new Controller(model1, model2, ciklusModel, godinaModel));
         Parent root = loader.load();
         primaryStage.setResizable(false);
         primaryStage.setTitle("Upis studenta");

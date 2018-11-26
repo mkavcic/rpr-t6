@@ -92,7 +92,7 @@
             <Label text="Podaci o studiju" />
             <ChoiceBox fx:id="izborSmjera" prefWidth="150.0" GridPane.rowIndex="2" />
             <Label text="Godina studija" GridPane.rowIndex="3" />
-            <ChoiceBox  prefWidth="150.0" GridPane.rowIndex="4" />
+            <ChoiceBox fx:id="izborGodine" prefWidth="150.0" GridPane.rowIndex="4" />
             <Label text="Ciklus studija" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Smjer" GridPane.rowIndex="1" />
             <ChoiceBox fx:id="izborCiklusa" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
