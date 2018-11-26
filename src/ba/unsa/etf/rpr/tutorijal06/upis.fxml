@@ -12,8 +12,12 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
+<?import java.net.URL?>
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
-  <columnConstraints>
+  <stylesheets>
+      <URL value="@ispravnost.css"/>
+  </stylesheets>
+    <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
@@ -36,9 +40,9 @@
         </rowConstraints>
          <children>
             <Label prefHeight="17.0" prefWidth="93.0" text="Osnovni podaci" />
-            <TextField promptText="Ime" GridPane.rowIndex="1" />
-            <TextField promptText="Prezime" GridPane.rowIndex="2" />
-            <TextField promptText="Broj indeksa" GridPane.rowIndex="3" />
+            <TextField fx:id="ime" promptText="Ime" GridPane.rowIndex="1" />
+            <TextField fx:id="prezime" promptText="Prezime" GridPane.rowIndex="2" />
+            <TextField fx:id="indeks" promptText="Broj indeksa" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <GridPane GridPane.rowIndex="1">
@@ -53,7 +57,7 @@
         </rowConstraints>
          <children>
             <Label prefHeight="17.0" prefWidth="134.0" text="Detaljni lični podaci" />
-            <TextField promptText="JMBG" GridPane.rowIndex="1" />
+            <TextField fx:id="jmbg" promptText="JMBG" GridPane.rowIndex="1" />
             <DatePicker promptText="Datum rođenja" GridPane.rowIndex="2" />
             <ComboBox fx:id="izborMjesta" editable="true" prefWidth="150.0" promptText="Mjesto rođenja" GridPane.rowIndex="3" />
          </children>
