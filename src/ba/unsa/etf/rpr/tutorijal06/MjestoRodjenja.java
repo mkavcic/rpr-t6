@@ -23,4 +23,8 @@ public class MjestoRodjenja {
     public MjestoRodjenja() {
     }
 
+    @Override
+    public String toString(){
+        return mjesto.get();
+    }
 }
