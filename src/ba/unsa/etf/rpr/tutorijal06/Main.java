@@ -16,7 +16,7 @@ public class Main extends Application {
         model1.napuni();
 
         FXMLLoader loader = new FXMLLoader((getClass().getResource("upis.fxml")));
-        loader.setController(new MjestoRodjenjaModel(model1));
+        loader.setController(new Controller(model1));
         Parent root = loader.load();
         primaryStage.setResizable(false);
         primaryStage.setTitle("Upis studenta");
