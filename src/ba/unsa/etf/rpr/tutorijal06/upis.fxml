@@ -55,7 +55,7 @@
             <Label prefHeight="17.0" prefWidth="134.0" text="Detaljni lični podaci" />
             <TextField promptText="JMBG" GridPane.rowIndex="1" />
             <DatePicker promptText="Datum rođenja" GridPane.rowIndex="2" />
-            <ComboBox fx:id="izborMjesta" prefWidth="150.0" promptText="Mjesto rođenja" GridPane.rowIndex="3" />
+            <ComboBox fx:id="izborMjesta" editable="true" prefWidth="150.0" promptText="Mjesto rođenja" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <GridPane GridPane.rowIndex="2">

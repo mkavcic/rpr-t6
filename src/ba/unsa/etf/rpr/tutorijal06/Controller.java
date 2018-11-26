@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.tutorijal06;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import java.awt.event.ActionEvent;
 
 public class Controller {
     private MjestoRodjenjaModel model1;
