@@ -18,7 +18,7 @@ public class Ciklus {
     }
 
     public Ciklus(String ciklus) {
-        this.ciklus = ciklus;
+        this.ciklus = new SimpleStringProperty(ciklus);
     }
     @Override
     public String toString(){
