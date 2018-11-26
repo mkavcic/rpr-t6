@@ -14,9 +14,6 @@ public class MjestoRodjenjaModel {
         this.trenutnoMjesto.set(trenutnoMjesto);
     }
 
-
-
-
     public MjestoRodjenja getTrenutnoMjesto() {
         return trenutnoMjesto.get();
     }
