@@ -90,7 +90,7 @@
         </rowConstraints>
          <children>
             <Label text="Podaci o studiju" />
-            <ChoiceBox prefWidth="150.0" GridPane.rowIndex="2" />
+            <ChoiceBox fx:id="izborSmjera" prefWidth="150.0" GridPane.rowIndex="2" />
             <Label text="Godina studija" GridPane.rowIndex="3" />
             <ChoiceBox prefWidth="150.0" GridPane.rowIndex="4" />
             <Label text="Ciklus studija" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -98,7 +98,7 @@
             <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Status studenta" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <CheckBox alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Student pripada posebnim boračkim kategorjama" textAlignment="RIGHT" GridPane.rowIndex="5" />
+            <CheckBox alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Student pripada posebnim boračkim kategorijama" textAlignment="RIGHT" GridPane.rowIndex="5" />
          </children>
       </GridPane>
       <GridPane GridPane.rowIndex="4">

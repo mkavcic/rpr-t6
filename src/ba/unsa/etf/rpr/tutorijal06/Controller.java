@@ -6,15 +6,19 @@ import javafx.scene.control.ComboBox;
 import java.awt.event.ActionEvent;
 
 public class Controller {
+    private SmjerModel model2;
     private MjestoRodjenjaModel model1;
     public ComboBox<MjestoRodjenja> izborMjesta;
+    public ChoiceBox<Smjer> izborSmjera;
 
-    public Controller(MjestoRodjenjaModel model) {
+    public Controller(MjestoRodjenjaModel model,SmjerModel model3) {
         this.model1 = model;
+        this.model2 = model3;
     }
 
     @FXML
     public void initialize(){
         izborMjesta.setItems(model1.getMjesta());
+        izborSmjera.setItems(model2.getSmjerovi());
     }
 }

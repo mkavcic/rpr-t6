@@ -14,9 +14,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         MjestoRodjenjaModel model1=new MjestoRodjenjaModel();
         model1.napuni();
+        SmjerModel model2=new SmjerModel();
+        model2.napuniSmjer();
 
         FXMLLoader loader = new FXMLLoader((getClass().getResource("upis.fxml")));
-        loader.setController(new Controller(model1));
+        loader.setController(new Controller(model1, model2));
         Parent root = loader.load();
         primaryStage.setResizable(false);
         primaryStage.setTitle("Upis studenta");
@@ -24,7 +26,6 @@ public class Main extends Application {
         primaryStage.show();
 
     }
-
 
     public static void main(String[] args) {
         launch(args);
