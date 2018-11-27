@@ -214,6 +214,33 @@ public class Controller {
             }
         });
 
+        indeks.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean o, Boolean n) {
+                GraphicValidationDecoration graphicValidationDecoration = new GraphicValidationDecoration();
+                if (!n && !validanIndeks(indeks.getCharacters().toString())) {
+                    graphicValidationDecoration.applyValidationDecoration(new ValidationMessage() {
+                        @Override
+                        public String getText() {
+                            return "Rubrika ne smije biti prazna, mora sadržavati petocifreni broj";
+                        }
+
+                        @Override
+                        public Severity getSeverity() {
+                            return Severity.ERROR;
+                        }
+
+                        @Override
+                        public Control getTarget() {
+                            return indeks;
+                        }
+                    });
+                } else {
+                    graphicValidationDecoration.removeDecorations(indeks);
+                }
+            }
+        });
+
         jmbg.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
