@@ -369,6 +369,34 @@ public class Controller {
             }
         });
 
+        email.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean o, Boolean n) {
+                GraphicValidationDecoration graphicValidationDecoration = new GraphicValidationDecoration();
+                EmailValidator validator = EmailValidator.getInstance();
+                if (!n && !validator.isValid(email.getText())) {
+                    graphicValidationDecoration.applyValidationDecoration(new ValidationMessage() {
+                        @Override
+                        public String getText() {
+                            return "Neispravna email adresa";
+                        }
+
+                        @Override
+                        public Severity getSeverity() {
+                            return Severity.ERROR;
+                        }
+
+                        @Override
+                        public Control getTarget() {
+                            return email;
+                        }
+                    });
+                } else {
+                    graphicValidationDecoration.removeDecorations(email);
+                }
+            }
+        });
+
     }
 
 }
