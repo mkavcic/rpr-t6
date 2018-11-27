@@ -391,9 +391,11 @@ public class Controller {
             public void changed(ObservableValue<? extends String> obs, String o, String n) {
                 EmailValidator validator = EmailValidator.getInstance();
                 if (validator.isValid(n)) {
+                    email.getStyleClass().removeAll("poljeIspravno");
                     email.getStyleClass().removeAll("poljeNijeIspravno");
                     email.getStyleClass().add("poljeIspravno");
                 } else {
+                    email.getStyleClass().removeAll("poljeNijeIspravno");
                     email.getStyleClass().removeAll("poljeIspravno");
                     email.getStyleClass().add("poljeNijeIspravno");
                 }
