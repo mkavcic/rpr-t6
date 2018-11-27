@@ -437,6 +437,33 @@ public class Controller {
             }
         });
 
+        izborGodine.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean o, Boolean n) {
+                GraphicValidationDecoration graphicValidationDecoration = new GraphicValidationDecoration();
+                if (!n && !(izborGodine.getValue() != null)) {
+                    graphicValidationDecoration.applyValidationDecoration(new ValidationMessage() {
+                        @Override
+                        public String getText() {
+                            return "Odaberite godinu studija!";
+                        }
+
+                        @Override
+                        public Severity getSeverity() {
+                            return Severity.ERROR;
+                        }
+
+                        @Override
+                        public Control getTarget() {
+                            return izborGodine;
+                        }
+                    });
+                } else {
+                    graphicValidationDecoration.removeDecorations(izborGodine);
+                }
+            }
+        });
+
     }
 
 }
