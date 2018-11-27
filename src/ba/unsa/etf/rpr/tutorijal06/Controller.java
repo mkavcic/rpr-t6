@@ -11,7 +11,7 @@ import org.controlsfx.validation.ValidationMessage;
 import org.controlsfx.validation.decoration.GraphicValidationDecoration;
 
 
-import java.awt.event.ActionEvent;
+import javafx.event.ActionEvent;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Optional;
@@ -107,7 +107,7 @@ public class Controller{
             }
             if (datum1.getMonth().getValue() != Integer.parseInt(jmbg.getCharacters().toString().substring(2, 4).replace("0", ""))) {
                 return false;
-            } else if (datum1.getDayOfYear() != Integer.parseInt(jmbg.getCharacters().toString().substring(0, 2).replace("0", ""))) {
+            } else if (datum1.getDayOfMonth() != Integer.parseInt(jmbg.getCharacters().toString().substring(0, 2).replace("0", ""))) {
                 return false;
             } else {
                 return true;
