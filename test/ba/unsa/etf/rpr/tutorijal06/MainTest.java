@@ -16,6 +16,8 @@ import org.testfx.framework.junit5.Start;
 @ExtendWith(ApplicationExtension.class)
 class MainTest {
     private TextField ime;
+    private TextField prezime;
+    private TextField jmbg;
 
     @Start
     public void start(Stage stage) throws Exception {
@@ -44,4 +46,38 @@ class MainTest {
         robot.write("Mirna");
         assertEquals("Mirna", ime.getText());
     }
+
+    @Test
+    public void imeNeispravnoTest(FxRobot robot) {
+        ime = robot.lookup("#ime").queryAs(TextField.class);
+        robot.clickOn(ime);
+        robot.write("M");
+        assertEquals("text-input text-field poljeNijeIspravno poljeNijeIspravno", ime.getStyleClass().toString());
+    }
+
+    @Test
+    public void prezimeTest(FxRobot robot) {
+        prezime = robot.lookup("#prezime").queryAs(TextField.class);
+        robot.clickOn(prezime);
+        robot.write("Kavčić");
+        assertEquals("Kavčić", prezime.getText());
+    }
+
+    @Test
+    public void prezimeNeispravnoTest(FxRobot robot) {
+        prezime = robot.lookup("#prezime").queryAs(TextField.class);
+        robot.clickOn(prezime);
+        robot.write("M");
+        assertEquals("text-input text-field poljeNijeIspravno poljeNijeIspravno", prezime.getStyleClass().toString());
+    }
+
+    @Test
+    public void jmbgTest(FxRobot robot) {
+        jmbg = robot.lookup("#jmbg").queryAs(TextField.class);
+        robot.clickOn(jmbg);
+        robot.write("1504998177172");
+        assertEquals("1504998177172", jmbg.getText());
+        assertEquals("text-input text-field poljeIspravno", jmbg.getStyleClass().toString());
+    }
+
 }
