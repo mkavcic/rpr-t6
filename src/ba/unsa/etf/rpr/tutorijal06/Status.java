@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.tutorijal06;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Status {
-    private SimpleStringProperty status=new SimpleStringProperty();
+    private SimpleStringProperty status = new SimpleStringProperty();
 
     public String getStatus() {
         return status.get();
@@ -18,8 +18,11 @@ public class Status {
     }
 
     public Status(String status) {
-        this.status =new SimpleStringProperty(status);
+        this.status = new SimpleStringProperty(status);
     }
+
     @Override
-    public String toString(){return status.get();}
+    public String toString() {
+        return status.get();
+    }
 }

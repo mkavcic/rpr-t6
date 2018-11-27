@@ -6,7 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class StatusModel {
-    private ObservableList<Status> statusi= FXCollections.observableArrayList();
+    private ObservableList<Status> statusi = FXCollections.observableArrayList();
     private ObjectProperty<Status> trenutniStatus = new SimpleObjectProperty<>();
 
     public Status getTrenutniStatus() {
@@ -25,7 +25,7 @@ public class StatusModel {
         return statusi;
     }
 
-    void napuniStatuse(){
+    void napuniStatuse() {
         statusi.add(new Status("Redovan"));
         statusi.add(new Status("Redovan samofinansirajući"));
     }

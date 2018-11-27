@@ -6,7 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class MjestoRodjenjaModel {
-    private ObservableList<MjestoRodjenja> mjesta= FXCollections.observableArrayList();
+    private ObservableList<MjestoRodjenja> mjesta = FXCollections.observableArrayList();
     private ObjectProperty<MjestoRodjenja> trenutnoMjesto = new SimpleObjectProperty<>();
 
 
@@ -27,7 +27,7 @@ public class MjestoRodjenjaModel {
         return mjesta;
     }
 
-    void napuni(){
+    void napuni() {
         mjesta.add(new MjestoRodjenja("Sarajevo"));
         mjesta.add(new MjestoRodjenja("Zenica"));
         mjesta.add(new MjestoRodjenja("Kakanj"));

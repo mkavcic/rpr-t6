@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.tutorijal06;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Smjer {
-    private SimpleStringProperty smjer=new SimpleStringProperty("");
+    private SimpleStringProperty smjer = new SimpleStringProperty("");
 
     public String getSmjer() {
         return smjer.get();
@@ -18,7 +18,7 @@ public class Smjer {
     }
 
     public Smjer(String smjer) {
-        this.smjer =new SimpleStringProperty(smjer);
+        this.smjer = new SimpleStringProperty(smjer);
     }
 
     @Override

@@ -11,20 +11,20 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        MjestoRodjenjaModel model1=new MjestoRodjenjaModel();
+    public void start(Stage primaryStage) throws Exception {
+        MjestoRodjenjaModel model1 = new MjestoRodjenjaModel();
         model1.napuni();
-        SmjerModel model2=new SmjerModel();
+        SmjerModel model2 = new SmjerModel();
         model2.napuniSmjer();
-        CiklusModel ciklusModel=new CiklusModel();
+        CiklusModel ciklusModel = new CiklusModel();
         ciklusModel.napuniCikluse();
-        GodinaModel godinaModel=new GodinaModel();
+        GodinaModel godinaModel = new GodinaModel();
         godinaModel.napuniGodine();
-        StatusModel statusModel=new StatusModel();
+        StatusModel statusModel = new StatusModel();
         statusModel.napuniStatuse();
 
         FXMLLoader loader = new FXMLLoader((getClass().getResource("upis.fxml")));
-        loader.setController(new Controller(model1, model2, ciklusModel, godinaModel,statusModel));
+        loader.setController(new Controller(model1, model2, ciklusModel, godinaModel, statusModel));
         Parent root = loader.load();
         root.getStylesheets().add(getClass().getResource("ispravnost.css").toExternalForm());
         primaryStage.setResizable(false);

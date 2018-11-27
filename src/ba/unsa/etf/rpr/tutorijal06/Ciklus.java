@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.tutorijal06;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Ciklus {
-    private SimpleStringProperty ciklus=new SimpleStringProperty("");
+    private SimpleStringProperty ciklus = new SimpleStringProperty("");
 
     public String getCiklus() {
         return ciklus.get();
@@ -20,8 +20,9 @@ public class Ciklus {
     public Ciklus(String ciklus) {
         this.ciklus = new SimpleStringProperty(ciklus);
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return ciklus.get();
     }
 }

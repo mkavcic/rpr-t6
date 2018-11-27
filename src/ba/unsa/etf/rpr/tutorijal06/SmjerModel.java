@@ -6,8 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class SmjerModel {
-    private ObservableList<Smjer> smjerovi= FXCollections.observableArrayList();
-    private ObjectProperty<Smjer> trenutniSmjer=new SimpleObjectProperty<>();
+    private ObservableList<Smjer> smjerovi = FXCollections.observableArrayList();
+    private ObjectProperty<Smjer> trenutniSmjer = new SimpleObjectProperty<>();
 
     public Smjer getTrenutniSmjer() {
         return trenutniSmjer.get();
@@ -25,7 +25,7 @@ public class SmjerModel {
         return smjerovi;
     }
 
-    void napuniSmjer(){
+    void napuniSmjer() {
         smjerovi.add(new Smjer("AIE"));
         smjerovi.add(new Smjer("RI"));
         smjerovi.add(new Smjer("EE"));

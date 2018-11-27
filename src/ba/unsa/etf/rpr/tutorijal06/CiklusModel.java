@@ -25,7 +25,7 @@ public class CiklusModel {
         return ciklusi;
     }
 
-    void napuniCikluse(){
+    void napuniCikluse() {
         ciklusi.add(new Ciklus("Bachelor"));
         ciklusi.add(new Ciklus("Master"));
         ciklusi.add(new Ciklus("Doktorski studij"));

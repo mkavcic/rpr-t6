@@ -6,8 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class GodinaModel {
-    private ObservableList<Godina> godine= FXCollections.observableArrayList();
-    private ObjectProperty<Godina> trenutnaGodina=new SimpleObjectProperty<>();
+    private ObservableList<Godina> godine = FXCollections.observableArrayList();
+    private ObjectProperty<Godina> trenutnaGodina = new SimpleObjectProperty<>();
 
     public Godina getTrenutnaGodina() {
         return trenutnaGodina.get();
@@ -24,7 +24,8 @@ public class GodinaModel {
     public ObservableList<Godina> getGodine() {
         return godine;
     }
-    void napuniGodine(){
+
+    void napuniGodine() {
         godine.add(new Godina("Prva"));
         godine.add(new Godina("Druga"));
         godine.add(new Godina("Treća"));
