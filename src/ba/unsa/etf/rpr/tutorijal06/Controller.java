@@ -4,12 +4,17 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
 import javafx.scene.control.TextField;
+import org.controlsfx.validation.Severity;
+import org.controlsfx.validation.ValidationMessage;
+import org.controlsfx.validation.decoration.GraphicValidationDecoration;
+
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.time.LocalDate;
+import java.util.Date;
 
 import static java.lang.Character.getNumericValue;
 
@@ -29,6 +34,8 @@ public class Controller {
     public TextField prezime;
     public TextField indeks;
     public TextField jmbg;
+
+    public DatePicker datum;
 
 
     public Controller(MjestoRodjenjaModel model, SmjerModel model3, CiklusModel ciklusModel, GodinaModel godinaModel, StatusModel statusModel) {
@@ -72,6 +79,33 @@ public class Controller {
         if(L>9) L=0;
         if(getNumericValue(n.charAt(12))!=L) return false;
         return true;
+    }
+
+    private boolean validanDatum(LocalDate datum1) {
+        Date date = new Date();
+        if (jmbg.getCharacters().toString().isEmpty()) {
+            return false;
+        }
+        if (date.getYear() < datum1.getYear() && date.getMonth() < datum1.getMonth().getValue() && date.getDay() < datum1.getDayOfYear()) {
+            return false;
+        } else {
+            if (Integer.parseInt(jmbg.getCharacters().toString().substring(4, 7)) < 900) {
+                if (datum1.getYear() != Integer.parseInt("2" + jmbg.getCharacters().toString().substring(4, 7))) {
+                    return false;
+                }
+            } else {
+                if (datum1.getYear() != Integer.parseInt("1" + jmbg.getCharacters().toString().substring(4, 7))) {
+                    return false;
+                }
+            }
+            if (datum1.getMonth().getValue() != Integer.parseInt(jmbg.getCharacters().toString().substring(2, 4).replace("0", ""))) {
+                return false;
+            } else if (datum1.getDayOfYear() != Integer.parseInt(jmbg.getCharacters().toString().substring(0, 2).replace("0", ""))) {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
 
     @FXML
@@ -135,6 +169,34 @@ public class Controller {
                     jmbg.getStyleClass().removeAll("poljeIspravno");
                     jmbg.getStyleClass().add("poljeNijeIspravno");
 
+                }
+            }
+        });
+
+        datum.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+
+                GraphicValidationDecoration graphicValidationDecoration = new GraphicValidationDecoration();
+                if (!newValue && !validanDatum(datum.getValue())) {
+                    graphicValidationDecoration.applyValidationDecoration(new ValidationMessage() {
+                        @Override
+                        public String getText() {
+                            return "Odaberite datum u skladu s vašim JMBG-om!";
+                        }
+
+                        @Override
+                        public Severity getSeverity() {
+                            return Severity.ERROR;
+                        }
+
+                        @Override
+                        public Control getTarget() {
+                            return datum;
+                        }
+                    });
+                } else {
+                    graphicValidationDecoration.removeDecorations(datum);
                 }
             }
         });
