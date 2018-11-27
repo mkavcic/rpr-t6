@@ -58,7 +58,7 @@ public class Controller {
         if (n == null) return false;
         if (n.length() < 2 || n.length() > 20) return false;
         for (int i = 0; i < n.length(); i++) {
-            if ((n.charAt(i) < 'A' || n.charAt(i) > 'Z') && (n.charAt(i) < 'a' || n.charAt(i) > 'z') || n.charAt(i)!='ž' || n.charAt(i)!='č' || n.charAt(i)!='ć' || n.charAt(i)!='đ' || n.charAt(i)!='š') return false;
+            if ((n.charAt(i) < 'A' || n.charAt(i) > 'Z') && (n.charAt(i) < 'a' || n.charAt(i) > 'z') && n.charAt(i)!='ž' && n.charAt(i)!='č' && n.charAt(i)!='ć' && n.charAt(i)!='đ' && n.charAt(i)!='š') return false;
         }
         return true;
     }
