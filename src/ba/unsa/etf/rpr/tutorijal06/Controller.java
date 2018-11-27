@@ -550,7 +550,7 @@ public class Controller {
             System.out.println("Broj indeksa: " + indeks.getCharacters().toString());
             System.out.println("JBMG: " + jmbg.getCharacters().toString());
             System.out.println("Datum rođenja: " + datum.getValue());
-            System.out.println("Mjesto rođenja: " + izborMjesta.getPromptText());
+            System.out.println("Mjesto rođenja: " + izborMjesta.getValue());
             if (!adresa.getCharacters().toString().isEmpty()) {
                 System.out.println("Kontakt adresa: " + adresa.getCharacters().toString());
             }

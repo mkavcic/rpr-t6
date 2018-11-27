@@ -1,9 +1,12 @@
 package ba.unsa.etf.rpr.tutorijal06;
 
+import static javafx.scene.input.KeyCode.DOWN;
+import static javafx.scene.input.KeyCode.ENTER;
 import static org.junit.jupiter.api.Assertions.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -20,6 +23,8 @@ class MainTest {
     private TextField jmbg;
     private TextField telefon;
     private TextField email;
+
+    private ComboBox mjesto;
 
     @Start
     public void start(Stage stage) throws Exception {
@@ -123,7 +128,5 @@ class MainTest {
         robot.write("mirna@");
         assertEquals("text-input text-field poljeNijeIspravno", email.getStyleClass().toString());
     }
-
-
 
 }
