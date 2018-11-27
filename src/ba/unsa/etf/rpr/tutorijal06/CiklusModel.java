@@ -26,8 +26,9 @@ public class CiklusModel {
     }
 
     void napuniCikluse(){
-        ciklusi.add(new Ciklus("Prvi ciklus"));
-        ciklusi.add(new Ciklus("Drugi ciklus"));
-        ciklusi.add(new Ciklus("Treći ciklus"));
+        ciklusi.add(new Ciklus("Bachelor"));
+        ciklusi.add(new Ciklus("Master"));
+        ciklusi.add(new Ciklus("Doktorski studij"));
+        ciklusi.add(new Ciklus("Stručni studij"));
     }
 }
