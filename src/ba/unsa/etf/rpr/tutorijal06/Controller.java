@@ -355,6 +355,19 @@ public class Controller {
             }
         });
 
+        telefon.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String o, String n) {
+                if (validanTelefon(n)) {
+                    telefon.getStyleClass().removeAll("poljeNijeIspravno");
+                    telefon.getStyleClass().add("poljeIspravno");
+                } else {
+                    telefon.getStyleClass().removeAll("poljeIspravno");
+                    telefon.getStyleClass().add("poljeNijeIspravno");
+                }
+            }
+        });
+
         email.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> obs, String o, String n) {
