@@ -116,5 +116,14 @@ class MainTest {
         assertEquals("text-input text-field poljeIspravno", email.getStyleClass().toString());
     }
 
+    @Test
+    public void emailNeispravanTest(FxRobot robot) {
+        email = robot.lookup("#email").queryAs(TextField.class);
+        robot.clickOn(email);
+        robot.write("mirna@");
+        assertEquals("text-input text-field poljeNijeIspravno", email.getStyleClass().toString());
+    }
+
+
 
 }
