@@ -6,6 +6,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.TextField;
+import org.apache.commons.validator.routines.EmailValidator;
 import org.controlsfx.validation.Severity;
 import org.controlsfx.validation.ValidationMessage;
 import org.controlsfx.validation.decoration.GraphicValidationDecoration;
@@ -350,6 +351,20 @@ public class Controller {
                     });
                 } else {
                     graphicValidationDecoration.removeDecorations(telefon);
+                }
+            }
+        });
+
+        email.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> obs, String o, String n) {
+                EmailValidator validator = EmailValidator.getInstance();
+                if (validator.isValid(n)) {
+                    email.getStyleClass().removeAll("poljeNijeIspravno");
+                    email.getStyleClass().add("poljeIspravno");
+                } else {
+                    email.getStyleClass().removeAll("poljeIspravno");
+                    email.getStyleClass().add("poljeNijeIspravno");
                 }
             }
         });
