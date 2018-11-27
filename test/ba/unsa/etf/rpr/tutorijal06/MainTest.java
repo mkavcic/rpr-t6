@@ -80,4 +80,12 @@ class MainTest {
         assertEquals("text-input text-field poljeIspravno", jmbg.getStyleClass().toString());
     }
 
+    @Test
+    public void jmbgNeispravanTest(FxRobot robot) {
+        jmbg = robot.lookup("#jmbg").queryAs(TextField.class);
+        robot.clickOn(jmbg);
+        robot.write("1514998177172");
+        assertEquals("text-input text-field poljeNijeIspravno", jmbg.getStyleClass().toString());
+    }
+
 }

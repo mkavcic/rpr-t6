@@ -282,6 +282,7 @@ public class Controller {
                     jmbg.getStyleClass().add("poljeIspravno");
                 } else {
                     jmbg.getStyleClass().removeAll("poljeIspravno");
+                    jmbg.getStyleClass().removeAll("poljeNijeIspravno");;
                     jmbg.getStyleClass().add("poljeNijeIspravno");
 
                 }
