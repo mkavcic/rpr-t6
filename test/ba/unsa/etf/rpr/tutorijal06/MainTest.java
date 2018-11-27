@@ -18,6 +18,7 @@ class MainTest {
     private TextField ime;
     private TextField prezime;
     private TextField jmbg;
+    private TextField telefon;
 
     @Start
     public void start(Stage stage) throws Exception {
@@ -87,5 +88,15 @@ class MainTest {
         robot.write("1514998177172");
         assertEquals("text-input text-field poljeNijeIspravno", jmbg.getStyleClass().toString());
     }
+
+    @Test
+    public void telefonTest(FxRobot robot) {
+        telefon = robot.lookup("#telefon").queryAs(TextField.class);
+        robot.clickOn(telefon);
+        robot.write("062206266");
+        assertEquals("062206266", telefon.getText());
+        assertEquals("text-input text-field poljeIspravno", telefon.getStyleClass().toString());
+    }
+
 
 }
