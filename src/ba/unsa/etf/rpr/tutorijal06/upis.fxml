@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -58,7 +59,7 @@
          <children>
             <Label prefHeight="17.0" prefWidth="134.0" text="Detaljni lični podaci" />
             <TextField fx:id="jmbg" promptText="JMBG" GridPane.rowIndex="1" />
-            <DatePicker fx:id="datum" promptText="Datum rođenja" GridPane.rowIndex="2" />
+            <DatePicker fx:id="datum" onAction="#date" promptText="Datum rođenja" GridPane.rowIndex="2" />
             <ComboBox fx:id="izborMjesta" editable="true" prefWidth="150.0" promptText="Mjesto rođenja" GridPane.rowIndex="3" />
          </children>
       </GridPane>
@@ -113,7 +114,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Potvrdi" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="potvrda" onAction="#potvrdi" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Potvrdi" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </children>

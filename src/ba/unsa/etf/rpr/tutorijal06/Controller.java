@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr.tutorijal06;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -12,14 +11,14 @@ import org.controlsfx.validation.ValidationMessage;
 import org.controlsfx.validation.decoration.GraphicValidationDecoration;
 
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Optional;
 
 import static java.lang.Character.getNumericValue;
 
-public class Controller {
+public class Controller{
     private SmjerModel model2;
     private MjestoRodjenjaModel model1;
     private CiklusModel model3;
@@ -41,6 +40,9 @@ public class Controller {
     public TextField adresa;
     public TextField telefon;
     public TextField email;
+
+    public CheckBox borackiStatus;
+    public Button potvrda;
 
 
     public Controller(MjestoRodjenjaModel model, SmjerModel model3, CiklusModel ciklusModel, GodinaModel godinaModel, StatusModel statusModel) {
@@ -122,6 +124,18 @@ public class Controller {
         return true;
     }
 
+
+    public void date(ActionEvent actionEvent){
+        LocalDate datum1 = datum.getValue();
+        if (validanDatum(datum1)) {
+            datum.getStyleClass().removeAll("poljeNijeIspravno");
+            datum.getStyleClass().add("poljeIspravno");
+        } else {
+            datum.getStyleClass().removeAll("poljeIspravno");
+            datum.getStyleClass().add("poljeNijeIspravno");
+        }
+    }
+
     @FXML
     public void initialize(){
         izborMjesta.setItems(model1.getMjesta());
@@ -137,6 +151,7 @@ public class Controller {
         adresa.getStyleClass().add("poljeIspravno");
         telefon.getStyleClass().add("poljeIspravno");
         email.getStyleClass().add("poljeNijeIspravno");
+        datum.getStyleClass().add("poljeNijeIspravno");
 
         ime.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -518,7 +533,42 @@ public class Controller {
             }
         });
 
+    }
 
+    public void potvrdi(ActionEvent actionEvent) {
+        EmailValidator validator = EmailValidator.getInstance();
+        if (validnoImePrezime(ime.getCharacters().toString()) && validnoImePrezime(prezime.getCharacters().toString()) && validanIndeks(indeks.getCharacters().toString()) && validanJmbg(jmbg.getCharacters().toString()) && validanDatum(datum.getValue()) && validanTelefon(telefon.getCharacters().toString()) && validator.isValid(email.getText()) && !(izborMjesta.getPromptText().isEmpty()) && izborStatusa.getValue() != null && izborCiklusa.getValue() != null && izborGodine.getValue() != null && izborSmjera.getValue() != null) {
+            potvrda.getStyleClass().removeAll("poljeNijeIspravno");
+            potvrda.getStyleClass().add("poljeIspravno");
+            System.out.println("Ime: " + ime.getCharacters().toString());
+            System.out.println("Prezime: " + prezime.getCharacters().toString());
+            System.out.println("Broj indeksa: " + indeks.getCharacters().toString());
+            System.out.println("JBMG: " + jmbg.getCharacters().toString());
+            System.out.println("Datum rođenja: " + datum.getValue());
+            System.out.println("Mjesto rođenja: " + izborMjesta.getPromptText());
+            if (!adresa.getCharacters().toString().isEmpty()) {
+                System.out.println("Kontakt adresa: " + adresa.getCharacters().toString());
+            }
+            if (!telefon.getCharacters().toString().isEmpty()) {
+                System.out.println("Kontakt telefon: " + telefon.getCharacters().toString());
+            }
+            System.out.println("E-mail adresa: " + email.getCharacters().toString());
+            System.out.println("Odsjek: " + izborSmjera.getValue());
+            System.out.println("Godina studija: " + izborGodine.getValue());
+            System.out.println("Ciklus studija: " + izborCiklusa.getValue());
+            System.out.println("Status: " + izborStatusa.getValue());
+            if (borackiStatus.isSelected()) {
+                System.out.println("Pripada boračkim kategorijama");
+            } else {
+                System.out.println("Ne pripada boračkim kategorijama");
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Neispravna forma");
+            alert.setResizable(false);
+            alert.setContentText("Unesite potrebne podatke!");
+            Optional<ButtonType> result = alert.showAndWait();
+        }
     }
 
 }

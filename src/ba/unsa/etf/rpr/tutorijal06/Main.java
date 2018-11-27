@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class Main extends Application {
 
@@ -26,6 +26,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader((getClass().getResource("upis.fxml")));
         loader.setController(new Controller(model1, model2, ciklusModel, godinaModel,statusModel));
         Parent root = loader.load();
+        root.getStylesheets().add(getClass().getResource("ispravnost.css").toExternalForm());
         primaryStage.setResizable(false);
         primaryStage.setTitle("Upis studenta");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
