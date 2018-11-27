@@ -98,5 +98,13 @@ class MainTest {
         assertEquals("text-input text-field poljeIspravno", telefon.getStyleClass().toString());
     }
 
+    @Test
+    public void telefonNeispravanTest(FxRobot robot) {
+        telefon = robot.lookup("#telefon").queryAs(TextField.class);
+        robot.clickOn(telefon);
+        robot.write("062.20--66");
+        assertEquals("text-input text-field poljeNijeIspravno", telefon.getStyleClass().toString());
+    }
+
 
 }
