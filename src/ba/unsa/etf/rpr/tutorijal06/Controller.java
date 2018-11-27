@@ -37,6 +37,10 @@ public class Controller {
 
     public DatePicker datum;
 
+    public TextField adresa;
+    public TextField telefon;
+    public TextField email;
+
 
     public Controller(MjestoRodjenjaModel model, SmjerModel model3, CiklusModel ciklusModel, GodinaModel godinaModel, StatusModel statusModel) {
         this.model1 = model;
@@ -108,6 +112,15 @@ public class Controller {
         }
     }
 
+    private boolean validanTelefon(String n) {
+        for (int i = 0; i < n.length(); i++) {
+            if (n.charAt(i) < '0' || n.charAt(i) > '9') {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @FXML
     public void initialize(){
         izborMjesta.setItems(model1.getMjesta());
@@ -120,6 +133,9 @@ public class Controller {
         prezime.getStyleClass().add("poljeNijeIspravno");
         indeks.getStyleClass().add("poljeNijeIspravno");
         jmbg.getStyleClass().add("poljeNijeIspravno");
+        adresa.getStyleClass().add("poljeIspravno");
+        telefon.getStyleClass().add("poljeIspravno");
+        email.getStyleClass().add("poljeNijeIspravno");
 
         ime.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -310,6 +326,34 @@ public class Controller {
                 }
             }
         });
+
+        telefon.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean o, Boolean n) {
+                GraphicValidationDecoration graphicValidationDecoration = new GraphicValidationDecoration();
+                if (!n && !validanTelefon(telefon.getCharacters().toString())) {
+                    graphicValidationDecoration.applyValidationDecoration(new ValidationMessage() {
+                        @Override
+                        public String getText() {
+                            return "Broj telefona mora sadržiti iskljčivo cifre u sebi!";
+                        }
+
+                        @Override
+                        public Severity getSeverity() {
+                            return Severity.ERROR;
+                        }
+
+                        @Override
+                        public Control getTarget() {
+                            return telefon;
+                        }
+                    });
+                } else {
+                    graphicValidationDecoration.removeDecorations(telefon);
+                }
+            }
+        });
+
     }
 
 }

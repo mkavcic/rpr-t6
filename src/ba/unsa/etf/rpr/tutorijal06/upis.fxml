@@ -74,9 +74,9 @@
         </rowConstraints>
          <children>
             <Label text="Kontakt podaci" />
-            <TextField promptText="Email adresa" GridPane.rowIndex="3" />
-            <TextField promptText="Kontakt adresa" GridPane.rowIndex="1" />
-            <TextField promptText="Kontakt telefon" GridPane.rowIndex="2" />
+            <TextField fx:id="email" promptText="Email adresa" GridPane.rowIndex="3" />
+            <TextField fx:id="adresa" promptText="Kontakt adresa" GridPane.rowIndex="1" />
+            <TextField fx:id="telefon" promptText="Kontakt telefon" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <GridPane GridPane.rowIndex="3">
